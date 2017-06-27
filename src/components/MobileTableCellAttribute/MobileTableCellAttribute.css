@@ -1,0 +1,25 @@
+.MobileTableCellAttribute {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  margin: 0 1rem;
+  padding: 1rem 0;
+}
+
+.MobileTableCellAttribute:last-of-type {
+  border-bottom: none;
+}
+
+.MobileTableCellAttribute__label {
+  /*border: 1px solid yellow;*/
+  text-align: left;
+  flex: 1;
+}
+
+.MobileTableCellAttribute__value {
+  /*border: 1px solid red;*/
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+  text-align: right;
+}
