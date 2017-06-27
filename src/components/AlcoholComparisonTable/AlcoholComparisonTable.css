@@ -10,7 +10,7 @@
 
 .AlcoholComparisonTable__mobile-table-cell {
   border: 1px solid black;
-  padding-top: 1rem;
+  padding: 1rem 0;
 }
 
 .AlcoholComparisonTable__mobile-table-row:nth-of-type(even) {
