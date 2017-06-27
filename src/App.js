@@ -43,4 +43,7 @@ export default App
 
 
 // BudgetBrew
+// BargainBrew
 // FrugalAlcoholic
+// Discount
+// ValueBrew
