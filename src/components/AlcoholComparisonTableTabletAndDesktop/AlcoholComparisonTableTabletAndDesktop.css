@@ -1,0 +1,10 @@
+.AlcoholComparisonTableTabletAndDesktop {
+  /*border: 1px solid orange;*/
+  width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .AlcoholComparisonTableTabletAndDesktop {
+    display: none;
+  }
+}
