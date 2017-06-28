@@ -1,0 +1,2 @@
+import AlcoholComparisonTableTabletAndDesktop from './AlcoholComparisonTableTabletAndDesktop'
+export default AlcoholComparisonTableTabletAndDesktop
