@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './AlcoholComparisonTableTabletAndDesktop.css'
+import FormattedAttributeValue from '../FormattedAttributeValue'
 
 const AlcoholComparisonTableTabletAndDesktop = ({ alcoholRecords }) => (
   <table className="AlcoholComparisonTableTabletAndDesktop">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Volume</th>
+        <th>Volume (ounces)</th>
         <th>ABV</th>
         <th>Ounces of pure alcohol</th>
         <th>Total cost</th>
@@ -28,10 +29,16 @@ const AlcoholComparisonTableTabletAndDesktop = ({ alcoholRecords }) => (
           <tr key={`alcohol-record-tablet-and-desktop-${index}`}>
             <td>{type}</td>
             <td>{volume}</td>
-            <td>{alcoholByVolume}</td>
+            <td>
+              <FormattedAttributeValue format="percentage" value={alcoholByVolume} />
+            </td>
             <td>{ouncesOfPureAlcohol}</td>
-            <td>{totalCost}</td>
-            <td>{dollarsPerOunceOfPureAlcohol}</td>
+            <td>
+              <FormattedAttributeValue format="dollar" value={totalCost} />
+            </td>
+            <td>
+              <FormattedAttributeValue format="dollar" value={dollarsPerOunceOfPureAlcohol} />
+            </td>
           </tr>
         )
       })}

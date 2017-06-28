@@ -24,7 +24,7 @@ const AlcoholComparisonTableMobile = ({ alcoholRecords }) => (
             <td className="AlcoholComparisonTableMobile__table-cell">
               <MobileTableCellHeader text={type} />
               <MobileTableCellAttribute label="Volume (ounces)" value={volume} />
-              <MobileTableCellAttribute label="ABV" value={alcoholByVolume} />
+              <MobileTableCellAttribute format="percentage" label="ABV" value={alcoholByVolume} />
               <MobileTableCellAttribute label="Ounces of pure alcohol" value={ouncesOfPureAlcohol} />
               <MobileTableCellAttribute format="dollar" label="Total cost" value={totalCost} />
               <MobileTableCellAttribute format="dollar" label="Cost per ounce of pure alcohol" value={dollarsPerOunceOfPureAlcohol} />
