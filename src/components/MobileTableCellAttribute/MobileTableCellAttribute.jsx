@@ -1,18 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './MobileTableCellAttribute.css'
-import { numberFormat } from '../../services/text-format'
+import FormattedAttributeValue from '../FormattedAttributeValue'
 
-const MobileTableCellAttribute = ({ format, label, value }) => (
-  <p className="MobileTableCellAttribute">
-    <span className="MobileTableCellAttribute__label">{label}:</span>
-    <span className="MobileTableCellAttribute__value">
-      {format === 'dollar' ? <span><sup>$</sup>{numberFormat(value)}</span>
-                           : value
-      }
-    </span>
-  </p>
-)
+const MobileTableCellAttribute = ({ format, label, value }) => {
+  return (
+    <p className="MobileTableCellAttribute">
+      <span className="MobileTableCellAttribute__label">{label}:</span>
+      <span className="MobileTableCellAttribute__value">
+        <FormattedAttributeValue format={format} value={value} />
+      </span>
+    </p>
+  )
+}
 
 MobileTableCellAttribute.propTypes = {
   format: PropTypes.string,
