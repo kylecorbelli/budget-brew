@@ -1,0 +1,2 @@
+import AlcoholTypeSelectorTileContainer from './AlcoholTypeSelectorTileContainer'
+export default AlcoholTypeSelectorTileContainer

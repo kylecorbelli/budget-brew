@@ -6,6 +6,7 @@ import AlcoholComparisonTableTabletAndDesktop from '../AlcoholComparisonTableTab
 
 const AlcoholComparisonTable = ({ alcoholRecords }) => (
   <div className="AlcoholComparisonTable">
+    <p className="AlcoholComparisonTable__headline">results:</p>
     <AlcoholComparisonTableMobile alcoholRecords={alcoholRecords} />
     <AlcoholComparisonTableTabletAndDesktop alcoholRecords={alcoholRecords} />
   </div>

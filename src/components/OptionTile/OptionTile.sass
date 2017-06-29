@@ -1,0 +1,22 @@
+@import 'styles/shared.sass'
+
+.OptionTile
+  align-items: center
+  border: 1px solid $gray
+  cursor: pointer
+  display: flex
+  flex: 1
+  height: 75px
+  justify-content: center
+  margin: 1px
+  min-width: 20%
+  padding: 5px
+  text-align: center
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out
+  +from($breakpoint-mobile-large)
+    margin: 2px
+    &:hover
+      box-shadow: 2px 2px 20px -2px $gray
+      transform: scale(1.03)
+  +from($breakpoint-desktop)
+    min-width: 15%

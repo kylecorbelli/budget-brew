@@ -7,12 +7,12 @@ const AlcoholComparisonTableTabletAndDesktop = ({ alcoholRecords }) => (
   <table className="AlcoholComparisonTableTabletAndDesktop">
     <thead>
       <tr>
-        <th>Type</th>
-        <th>Volume (ounces)</th>
+        <th>type</th>
+        <th>volume (ounces)</th>
         <th>ABV</th>
-        <th>Ounces of pure alcohol</th>
-        <th>Total cost</th>
-        <th>Cost per ounce of pure alcohol</th>
+        <th>ounces of pure alcohol</th>
+        <th>total cost</th>
+        <th>cost per ounce of pure alcohol</th>
       </tr>
     </thead>
     <tbody>

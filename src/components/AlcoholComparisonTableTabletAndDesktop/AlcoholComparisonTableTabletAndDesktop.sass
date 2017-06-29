@@ -1,0 +1,16 @@
+@import 'styles/shared.sass'
+
+.AlcoholComparisonTableTabletAndDesktop
+  display: none
+  +from($breakpoint-mobile-large)
+    border-collapse: collapse
+    display: table
+    width: 100%
+    th, td
+      border: 1px solid $gray
+      padding: 15px
+      text-align: right
+      &:first-of-type
+        text-align: left
+    th
+      border-top: 2px solid $blue
