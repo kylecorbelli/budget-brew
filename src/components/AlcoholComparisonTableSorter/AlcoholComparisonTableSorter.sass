@@ -23,14 +23,16 @@
 
 .AlcoholComparisonTableSorter__sort-attribute-container,
 .AlcoholComparisonTableSorter__sort-order-container
-  min-width: 55%
+  flex-basis: 55%
   +from($breakpoint-tablet)
-    min-width: 40%
+    flex-basis: 40%
 
 .AlcoholComparisonTableSorter__sort-attribute-container
-  flex: 3
+  flex-grow: 3
+  flex-shrink: 3
 
 .AlcoholComparisonTableSorter__sort-order-container
-  flex: 2
+  flex-grow: 2
+  flex-shrink: 2
   +from($breakpoint-tablet)
     margin-left: 1rem
