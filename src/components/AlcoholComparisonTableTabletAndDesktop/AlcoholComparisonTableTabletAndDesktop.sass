@@ -12,5 +12,17 @@
       text-align: right
       &:first-of-type
         text-align: left
+        border-left: none
+      &:last-of-type
+        border-right: none
     th
-      border-top: 2px solid $blue
+      background-color: $blue
+      color: white
+      font-weight: normal
+    tr
+      &:nth-of-type(even)
+        background-color: $lightestgray
+      &:hover td
+        background-color: $lightgray
+      &:last-of-type td
+        border-bottom: none
