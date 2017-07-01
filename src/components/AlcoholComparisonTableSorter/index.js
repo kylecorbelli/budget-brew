@@ -1,0 +1,2 @@
+import AlcoholComparisonTableSorter from './AlcoholComparisonTableSorter'
+export default AlcoholComparisonTableSorter

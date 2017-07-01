@@ -1,0 +1,17 @@
+$orange: #EE680F
+$blue: #00395E
+$teal: #00999E
+$gray: #D5D5D5
+
+$breakpoint-mobile-large: 600px
+$breakpoint-tablet: 768px
+$breakpoint-desktop: 992px
+$breakpoint-desktop-large: 1200px
+
+@mixin from($breakpoint)
+  @media only screen and (min-width: $breakpoint + 1px)
+    @content
+
+@mixin to($breakpoint)
+  @media only screen and (max-width: $breakpoint)
+    @content

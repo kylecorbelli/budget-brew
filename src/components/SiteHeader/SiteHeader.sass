@@ -1,0 +1,27 @@
+@import 'styles/shared.sass'
+
+.SiteHeader
+  align-items: center
+  background-color: $orange
+  display: flex
+  justify-content: center
+  padding: 10px
+  +from($breakpoint-mobile-large)
+    justify-content: flex-start
+
+.SiteHeader__headline
+  color: white
+  font-weight: lighter
+  margin: 0
+
+.SiteHeader__headline-highlight
+  font-weight: bold
+
+.SiteHeader__subheadline
+  color: $blue
+  display: block
+  font-size: 1em
+  font-weight: lighter
+  letter-spacing: 0.12em
+  margin: -0.3em 0 0 0
+  padding: 0
