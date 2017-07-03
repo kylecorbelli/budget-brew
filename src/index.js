@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import Routes from './routes'
 import configureStore from './redux/configure-store'
+import { performInitialAlcoholComputations } from './redux/actions'
 // import registerServiceWorker from './registerServiceWorker';
 import './styles/index.css';
 
 const store = configureStore()
+store.dispatch(performInitialAlcoholComputations())
 
 ReactDOM.render(
   <Provider store={store}>

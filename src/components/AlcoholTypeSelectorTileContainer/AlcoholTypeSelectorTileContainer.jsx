@@ -1,32 +1,26 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './AlcoholTypeSelectorTileContainer.css'
 import OptionTile from '../OptionTile'
 
-const alcoholTypes = [
-  '40oz',
-  'handle',
-  'cocktail',
-  'box wine',
-  '6 pack',
-  '12 pack',
-  '24 pack',
-  '30 pack',
-  'shot',
-  'pint',
-  'pitcher',
-  'tall can',
-]
-
-const AlcoholTypeSelectorTileContainer = () => (
+const AlcoholTypeSelectorTileContainer = ({ alcoholTypeOptions }) => (
   <div className="AlcoholTypeSelectorTileContainer">
-    {alcoholTypes.map((alcoholType, index) => {
+    {alcoholTypeOptions.map((alcoholTypeOption, index) => {
       return (
-        <OptionTile key={`OptionTile-${alcoholType}-${index}`}>
-          {alcoholType}
+        <OptionTile key={`OptionTile-${alcoholTypeOption}-${index}`}>
+          {alcoholTypeOption.name}
         </OptionTile>
       )
     })}
   </div>
 )
+
+AlcoholTypeSelectorTileContainer.propTypes = {
+  alcoholTypeOptions: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+}
 
 export default AlcoholTypeSelectorTileContainer
