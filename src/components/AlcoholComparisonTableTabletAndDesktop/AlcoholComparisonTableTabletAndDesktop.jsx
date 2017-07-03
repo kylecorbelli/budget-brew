@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './AlcoholComparisonTableTabletAndDesktop.css'
 import FormattedAttributeValue from '../FormattedAttributeValue'
 
-const AlcoholComparisonTableTabletAndDesktop = ({ alcoholRecords }) => (
+const AlcoholComparisonTableTabletAndDesktop = ({ selectedAlcoholTypes }) => (
   <table className="AlcoholComparisonTableTabletAndDesktop">
     <thead>
       <tr>
@@ -16,7 +16,7 @@ const AlcoholComparisonTableTabletAndDesktop = ({ alcoholRecords }) => (
       </tr>
     </thead>
     <tbody>
-      {alcoholRecords.map((alcoholRecord, index) => {
+      {selectedAlcoholTypes.map((alcoholType, index) => {
         const {
           type,
           volume,
@@ -24,7 +24,7 @@ const AlcoholComparisonTableTabletAndDesktop = ({ alcoholRecords }) => (
           ouncesOfPureAlcohol,
           totalCost,
           dollarsPerOunceOfPureAlcohol,
-        } = alcoholRecord
+        } = alcoholType
         return (
           <tr key={`alcohol-record-tablet-and-desktop-${index}`}>
             <td>{type}</td>
@@ -47,7 +47,7 @@ const AlcoholComparisonTableTabletAndDesktop = ({ alcoholRecords }) => (
 )
 
 AlcoholComparisonTableTabletAndDesktop.propTypes = {
-  alcoholRecords: PropTypes.arrayOf(PropTypes.shape({
+  selectedAlcoholTypes: PropTypes.arrayOf(PropTypes.shape({
     type: PropTypes.string.isRequired,
     volume: PropTypes.number.isRequired,
     alcoholByVolume: PropTypes.number.isRequired,

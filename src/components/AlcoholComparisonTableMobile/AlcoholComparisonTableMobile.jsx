@@ -4,10 +4,10 @@ import MobileTableCellAttribute from '../MobileTableCellAttribute'
 import MobileTableCellHeader from '../MobileTableCellHeader'
 import './AlcoholComparisonTableMobile.css'
 
-const AlcoholComparisonTableMobile = ({ alcoholRecords }) => (
+const AlcoholComparisonTableMobile = ({ selectedAlcoholTypes }) => (
   <table className="AlcoholComparisonTableMobile">
     <tbody className="AlcoholComparisonTableMobile__body">
-      {alcoholRecords.map((alcoholRecord, index) => {
+      {selectedAlcoholTypes.map((alcoholType, index) => {
         const {
           type,
           volume,
@@ -15,7 +15,7 @@ const AlcoholComparisonTableMobile = ({ alcoholRecords }) => (
           ouncesOfPureAlcohol,
           totalCost,
           dollarsPerOunceOfPureAlcohol,
-        } = alcoholRecord
+        } = alcoholType
         return (
           <tr
             className="AlcoholComparisonTableMobile__table-row"
@@ -37,7 +37,7 @@ const AlcoholComparisonTableMobile = ({ alcoholRecords }) => (
 )
 
 AlcoholComparisonTableMobile.propTypes = {
-  alcoholRecords: PropTypes.arrayOf(PropTypes.shape({
+  selectedAlcoholTypes: PropTypes.arrayOf(PropTypes.shape({
     type: PropTypes.string.isRequired,
     volume: PropTypes.number.isRequired,
     alcoholByVolume: PropTypes.number.isRequired,
