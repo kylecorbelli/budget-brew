@@ -17,11 +17,12 @@ const AlcoholComparisonTable = ({ selectedAlcoholTypes }) => {
 
 AlcoholComparisonTable.propTypes = {
   selectedAlcoholTypes: PropTypes.arrayOf(PropTypes.shape({
-    type: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     volume: PropTypes.number.isRequired,
+    volumeInOunces: PropTypes.number.isRequired,
     alcoholByVolume: PropTypes.number.isRequired,
     totalCost: PropTypes.number.isRequired,
-    dollarsPerOunceOfPureAlcohol: PropTypes.number.isRequired,
+    costPerOunceOfPureAlcohol: PropTypes.number.isRequired,
   })).isRequired,
 }
 
