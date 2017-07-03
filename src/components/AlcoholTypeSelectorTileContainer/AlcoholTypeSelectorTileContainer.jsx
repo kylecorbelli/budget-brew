@@ -3,11 +3,17 @@ import PropTypes from 'prop-types'
 import './AlcoholTypeSelectorTileContainer.css'
 import OptionTile from '../OptionTile'
 
-const AlcoholTypeSelectorTileContainer = ({ alcoholTypeOptions }) => (
+const AlcoholTypeSelectorTileContainer = ({ alcoholTypeOptions, selectAlcoholType }) => (
   <div className="AlcoholTypeSelectorTileContainer">
     {alcoholTypeOptions.map((alcoholTypeOption, index) => {
       return (
-        <OptionTile key={`OptionTile-${alcoholTypeOption}-${index}`}>
+        <OptionTile
+          key={`OptionTile-${alcoholTypeOption.slug}-${index}`}
+          onClick={() => {
+            const cuid = new Date().valueOf()
+            selectAlcoholType(alcoholTypeOption, cuid)
+          }}
+        >
           {alcoholTypeOption.name}
         </OptionTile>
       )
@@ -21,6 +27,7 @@ AlcoholTypeSelectorTileContainer.propTypes = {
       name: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  selectAlcoholType: PropTypes.func.isRequired,
 }
 
 export default AlcoholTypeSelectorTileContainer

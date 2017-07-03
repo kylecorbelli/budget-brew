@@ -1,4 +1,7 @@
 import { connect } from 'react-redux'
+import {
+  selectAlcoholType,
+} from '../redux/actions'
 import AlcoholTypeSelectorTileContainer from '../components/AlcoholTypeSelectorTileContainer'
 
 const mapStateToProps = (state) => {
@@ -17,7 +20,7 @@ const mapStateToProps = (state) => {
 
 const AlcoholTypeSelectorTileContainerConnected = connect(
   mapStateToProps,
-  null,
+  { selectAlcoholType },
 )(AlcoholTypeSelectorTileContainer)
 
 export default AlcoholTypeSelectorTileContainerConnected

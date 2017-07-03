@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './AlcoholComparisonTableTabletAndDesktop.css'
 import FormattedAttributeValue from '../FormattedAttributeValue'
+import { numberFormat } from '../../services/text-format'
 
 const AlcoholComparisonTableTabletAndDesktop = ({ selectedAlcoholTypes }) => (
   <table className="AlcoholComparisonTableTabletAndDesktop">
@@ -18,26 +19,26 @@ const AlcoholComparisonTableTabletAndDesktop = ({ selectedAlcoholTypes }) => (
     <tbody>
       {selectedAlcoholTypes.map((alcoholType, index) => {
         const {
-          type,
-          volume,
+          name,
+          volumeInOunces,
           alcoholByVolume,
           ouncesOfPureAlcohol,
           totalCost,
-          dollarsPerOunceOfPureAlcohol,
+          costPerOunceOfPureAlcohol,
         } = alcoholType
         return (
           <tr key={`alcohol-record-tablet-and-desktop-${index}`}>
-            <td>{type}</td>
-            <td>{volume}</td>
+            <td>{name}</td>
+            <td>{numberFormat(volumeInOunces, { decimalPlaces: 1 })}</td>
             <td>
               <FormattedAttributeValue format="percentage" value={alcoholByVolume} />
             </td>
-            <td>{ouncesOfPureAlcohol}</td>
+            <td>{numberFormat(ouncesOfPureAlcohol, { decimalPlaces: 1 })}</td>
             <td>
               <FormattedAttributeValue format="dollar" value={totalCost} />
             </td>
             <td>
-              <FormattedAttributeValue format="dollar" value={dollarsPerOunceOfPureAlcohol} />
+              <FormattedAttributeValue format="dollar" value={costPerOunceOfPureAlcohol} />
             </td>
           </tr>
         )
@@ -48,11 +49,12 @@ const AlcoholComparisonTableTabletAndDesktop = ({ selectedAlcoholTypes }) => (
 
 AlcoholComparisonTableTabletAndDesktop.propTypes = {
   selectedAlcoholTypes: PropTypes.arrayOf(PropTypes.shape({
-    type: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     volume: PropTypes.number.isRequired,
+    volumeInOunces: PropTypes.number.isRequired,
     alcoholByVolume: PropTypes.number.isRequired,
     totalCost: PropTypes.number.isRequired,
-    dollarsPerOunceOfPureAlcohol: PropTypes.number.isRequired,
+    costPerOunceOfPureAlcohol: PropTypes.number.isRequired,
   })).isRequired,
 }
 
