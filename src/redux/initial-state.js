@@ -121,6 +121,4 @@ const initialState = {
   },
 }
 
-// In a functional style, compute all the computed properties and return that as the intial state
-
 export default initialState

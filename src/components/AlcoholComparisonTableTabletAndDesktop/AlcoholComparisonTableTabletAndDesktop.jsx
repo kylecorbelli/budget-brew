@@ -16,7 +16,7 @@ const AlcoholComparisonTableTabletAndDesktop = ({ selectedAlcoholTypes }) => (
       </tr>
     </thead>
     <tbody>
-      {selectedAlcoholTypes.map((alcoholRecord, index) => {
+      {selectedAlcoholTypes.map((alcoholType, index) => {
         const {
           type,
           volume,
@@ -24,7 +24,7 @@ const AlcoholComparisonTableTabletAndDesktop = ({ selectedAlcoholTypes }) => (
           ouncesOfPureAlcohol,
           totalCost,
           dollarsPerOunceOfPureAlcohol,
-        } = alcoholRecord
+        } = alcoholType
         return (
           <tr key={`alcohol-record-tablet-and-desktop-${index}`}>
             <td>{type}</td>

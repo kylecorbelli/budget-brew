@@ -7,7 +7,7 @@ import './AlcoholComparisonTableMobile.css'
 const AlcoholComparisonTableMobile = ({ selectedAlcoholTypes }) => (
   <table className="AlcoholComparisonTableMobile">
     <tbody className="AlcoholComparisonTableMobile__body">
-      {selectedAlcoholTypes.map((alcoholRecord, index) => {
+      {selectedAlcoholTypes.map((alcoholType, index) => {
         const {
           type,
           volume,
@@ -15,7 +15,7 @@ const AlcoholComparisonTableMobile = ({ selectedAlcoholTypes }) => (
           ouncesOfPureAlcohol,
           totalCost,
           dollarsPerOunceOfPureAlcohol,
-        } = alcoholRecord
+        } = alcoholType
         return (
           <tr
             className="AlcoholComparisonTableMobile__table-row"

@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-
 import AlcoholComparisonTable from '../components/AlcoholComparisonTable'
 
 const mapStateToProps = (state) => {

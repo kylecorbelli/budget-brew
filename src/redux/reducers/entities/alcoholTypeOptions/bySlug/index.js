@@ -7,14 +7,13 @@ const bySlug = (state = {}, action) => {
     case constants.PERFORM_INTITIAL_ALCOHOL_COMPUTATIONS:
       const newState = {}
       Object.keys(state).forEach((key) => {
-        const alcoholTypeOption = state[key]
-        const newAlcoholTypeOption = newState[key] = { ...alcoholTypeOption }
-        switch (alcoholTypeOption.volumeUnit) {
+        const newAlcoholTypeOption = newState[key] = { ...state[key] }
+        switch (newAlcoholTypeOption.volumeUnit) {
           case 'liter':
-            newAlcoholTypeOption.volumeInOunces = litersToOunces(alcoholTypeOption.volume)
+            newAlcoholTypeOption.volumeInOunces = litersToOunces(newAlcoholTypeOption.volume)
             break
           case 'ounce':
-            newAlcoholTypeOption.volumeInOunces = alcoholTypeOption.volume
+            newAlcoholTypeOption.volumeInOunces = newAlcoholTypeOption.volume
             break
           default:
             break
