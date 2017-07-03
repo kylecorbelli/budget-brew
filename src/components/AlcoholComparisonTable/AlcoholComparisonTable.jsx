@@ -4,13 +4,16 @@ import './AlcoholComparisonTable.css'
 import AlcoholComparisonTableMobile from '../AlcoholComparisonTableMobile'
 import AlcoholComparisonTableTabletAndDesktop from '../AlcoholComparisonTableTabletAndDesktop'
 
-const AlcoholComparisonTable = ({ selectedAlcoholTypes }) => (
-  <div className="AlcoholComparisonTable">
-    <p className="AlcoholComparisonTable__headline">results:</p>
-    <AlcoholComparisonTableMobile selectedAlcoholTypes={selectedAlcoholTypes} />
-    <AlcoholComparisonTableTabletAndDesktop selectedAlcoholTypes={selectedAlcoholTypes} />
-  </div>
-)
+const AlcoholComparisonTable = ({ selectedAlcoholTypes }) => {
+  if (!selectedAlcoholTypes.length) return null
+  return (
+    <div className="AlcoholComparisonTable">
+      <p className="AlcoholComparisonTable__headline">results:</p>
+      <AlcoholComparisonTableMobile selectedAlcoholTypes={selectedAlcoholTypes} />
+      <AlcoholComparisonTableTabletAndDesktop selectedAlcoholTypes={selectedAlcoholTypes} />
+    </div>
+  )
+}
 
 AlcoholComparisonTable.propTypes = {
   selectedAlcoholTypes: PropTypes.arrayOf(PropTypes.shape({
