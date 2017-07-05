@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './AlcoholTypeSelectorTileContainer.css'
 import OptionTile from '../OptionTile'
+import ClickConfirmationBlock from '../ClickConfirmationBlock'
 
 const AlcoholTypeSelectorTileContainer = ({ alcoholTypeOptions, selectAlcoholType }) => (
   <div className="AlcoholTypeSelectorTileContainer">
@@ -14,7 +15,9 @@ const AlcoholTypeSelectorTileContainer = ({ alcoholTypeOptions, selectAlcoholTyp
             selectAlcoholType(alcoholTypeOption, cuid)
           }}
         >
-          {alcoholTypeOption.name}
+          <ClickConfirmationBlock confirmationText="added below ✔">
+            {alcoholTypeOption.name}
+          </ClickConfirmationBlock>
         </OptionTile>
       )
     })}
