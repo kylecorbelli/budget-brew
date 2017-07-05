@@ -15,7 +15,7 @@ const AlcoholTypeSelectorTileContainer = ({ alcoholTypeOptions, selectAlcoholTyp
             selectAlcoholType(alcoholTypeOption, cuid)
           }}
         >
-          <ClickConfirmationBlock confirmationText="added below ✔">
+          <ClickConfirmationBlock confirmationText="added below ↓">
             {alcoholTypeOption.name}
           </ClickConfirmationBlock>
         </OptionTile>
