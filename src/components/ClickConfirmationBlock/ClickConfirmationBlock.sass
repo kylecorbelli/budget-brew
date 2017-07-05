@@ -1,0 +1,33 @@
+@import 'styles/shared.sass'
+
+.ClickConfirmationBlock,
+.ClickConfirmationBlock__rolling-block,
+.ClickConfirmationBlock__normal-content,
+.ClickConfirmationBlock__confirmation-content
+  box-sizing: border-box
+
+.ClickConfirmationBlock__normal-content,
+.ClickConfirmationBlock__confirmation-content
+  align-items: center
+  display: flex
+  height: 50%
+  justify-content: center
+  width: 100%
+
+.ClickConfirmationBlock
+  height: 100%
+  overflow: hidden
+  width: 100%
+
+.ClickConfirmationBlock__rolling-block
+  height: 200%
+  transition: transform 0.2s ease-out
+
+.ClickConfirmationBlock__rolling-block--show-normal-content
+  transform: translate(0, 0)
+
+.ClickConfirmationBlock__rolling-block--show-confirmation
+  transform: translate(0, -50%)
+
+.ClickConfirmationBlock__confirmation-content
+  color: $orange
