@@ -4,9 +4,7 @@ import './AlcoholComparisonTable.css'
 import AlcoholComparisonTableMobile from '../AlcoholComparisonTableMobile'
 import AlcoholComparisonTableTabletAndDesktop from '../AlcoholComparisonTableTabletAndDesktop'
 
-const AlcoholComparisonTable = ({
-  selectedAlcoholTypes,
-}) => {
+const AlcoholComparisonTable = ({ selectedAlcoholTypes }) => {
   if (!selectedAlcoholTypes.length) return null
   return (
     <div className="AlcoholComparisonTable">

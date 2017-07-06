@@ -7,5 +7,5 @@ const sortAlcoholSelections = (alcoholSelections, { key, order }) => {
 }
 
 export {
-  sortAlcoholSelections
+  sortAlcoholSelections,
 }

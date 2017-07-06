@@ -3,8 +3,8 @@ import * as actions from '../../actions'
 
 describe('sortAttributeKey', () => {
   it('should default to "costPerOunceOfPureAlcohol"', () => {
-    const result = sortAttributeKey(undefined, { type: null })
-    expect(result).toBe('costPerOunceOfPureAlcohol')
+    const newState = sortAttributeKey(undefined, { type: null })
+    expect(newState).toBe('costPerOunceOfPureAlcohol')
   })
 
   describe('SET_SORT_ATTRIBUTE_KEY', () => {

@@ -18,7 +18,7 @@ const SortableTableHeaderConnected = connect(
   {
     setSortAttributeKey,
     setSortOrderKey,
-  }
+  },
 )(SortableTableHeader)
 
 export default SortableTableHeaderConnected
