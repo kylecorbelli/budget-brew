@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import AlcoholComparisonTable from '../components/AlcoholComparisonTable'
+import { sortAlcoholSelections } from '../services/sorting'
 
 const mapStateToProps = (state) => {
   const {
@@ -9,9 +10,12 @@ const mapStateToProps = (state) => {
         bySlug,
       },
     },
+    sortAttributeKey: selectedSortAttributeKey,
+    sortOrderKey: selectedSortOrderKey,
   } = state
+  const unorderedSelectedAlcoholTypes = allSlugs.map(slug => bySlug[slug])
   return {
-    selectedAlcoholTypes: allSlugs.map(slug => bySlug[slug]),
+    selectedAlcoholTypes: sortAlcoholSelections(unorderedSelectedAlcoholTypes, { key: selectedSortAttributeKey, order: selectedSortOrderKey }),
   }
 }
 
