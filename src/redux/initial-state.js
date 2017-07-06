@@ -158,6 +158,10 @@ const initialState = {
   },
   sortAttributeKey: 'costPerOunceOfPureAlcohol',
   sortOrderKey: 'lowToHigh',
+  alcoholInstanceEditing: {
+    attributeBeingEdited: null,
+    slugBeingEdited: null,
+  },
 }
 
 export default initialState

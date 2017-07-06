@@ -16,6 +16,19 @@ const bySlug = (state = {}, action) => {
         ...state,
         [uniqueSlug]: alcoholTypeCopy,
       }
+    case constants.UPDATE_ALCOHOL_INSTANCE:
+      const {
+        slug,
+        attributeName,
+        newValue,
+      } = action.payload
+      return {
+        ...state,
+        [slug]: {
+          ...state[slug],
+          [attributeName]: newValue,
+        },
+      }
     default:
       return state
   }
