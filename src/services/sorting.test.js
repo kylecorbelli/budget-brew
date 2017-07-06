@@ -72,6 +72,7 @@ describe('sorting', () => {
           costPerOunceOfPureAlcohol: 1.2757201646090535
         },
       ]
+      expect(sortedByTotalCostHighToLow).toEqual(expectedSortedByTotalCostHighToLow)
     })
   })
 })
