@@ -11,3 +11,17 @@ export const selectAlcoholType = (alcoholType, cuid) => ({
     cuid,
   },
 })
+
+export const setSortAttributeKey = (newSortAttributeKey) => ({
+  type: constants.SET_SORT_ATTRIBUTE_KEY,
+  payload: {
+    newSortAttributeKey,
+  },
+})
+
+export const setSortOrderKey = (newSortOrderKey) => ({
+  type: constants.SET_SORT_ORDER_KEY,
+  payload: {
+    newSortOrderKey,
+  },
+})

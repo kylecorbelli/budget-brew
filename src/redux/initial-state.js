@@ -64,7 +64,7 @@ const initialState = {
           volume: 360,
           volumeUnit: 'ounce',
           alcoholByVolume: 0.05,
-          totalCost: 22.98,
+          totalCost: 19.98,
         },
         'shot': {
           slug: 'shot',
@@ -118,7 +118,46 @@ const initialState = {
       bySlug: {},
       allSlugs: [],
     },
+    sortAttributeOptions: {
+      byKey: {
+        'costPerOunceOfPureAlcohol': {
+          key: 'costPerOunceOfPureAlcohol',
+          name: 'cost per ounce of pure alcohol',
+        },
+        'totalCost': {
+          key: 'totalCost',
+          name: 'total cost',
+        },
+        'alcoholByVolume': {
+          key: 'alcoholByVolume',
+          name: 'alcohol by volume',
+        },
+      },
+      allKeys: [
+        'costPerOunceOfPureAlcohol',
+        'totalCost',
+        'alcoholByVolume',
+      ],
+    },
+    sortOrderOptions: {
+      byKey: {
+        'lowToHigh': {
+          key: 'lowToHigh',
+          name: 'low to high',
+        },
+        'highToLow': {
+          key: 'highToLow',
+          name: 'high to low',
+        },
+      },
+      allKeys: [
+        'lowToHigh',
+        'highToLow',
+      ],
+    }
   },
+  sortAttributeKey: 'costPerOunceOfPureAlcohol',
+  sortOrderKey: 'lowToHigh',
 }
 
 export default initialState
