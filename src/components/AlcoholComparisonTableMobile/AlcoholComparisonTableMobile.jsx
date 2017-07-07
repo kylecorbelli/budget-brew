@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import MobileTableCellAttribute from '../MobileTableCellAttribute'
+import MobileTableCellAttributeConnected from '../../containers/MobileTableCellAttributeConnected'
 import MobileTableCellHeader from '../MobileTableCellHeader'
-import { numberFormat } from '../../services/text-format'
 import './AlcoholComparisonTableMobile.css'
 
 const AlcoholComparisonTableMobile = ({ selectedAlcoholTypes }) => (
@@ -10,6 +9,7 @@ const AlcoholComparisonTableMobile = ({ selectedAlcoholTypes }) => (
     <tbody className="AlcoholComparisonTableMobile__body">
       {selectedAlcoholTypes.map((alcoholType, index) => {
         const {
+          slug,
           name,
           volumeInOunces,
           alcoholByVolume,
@@ -24,11 +24,40 @@ const AlcoholComparisonTableMobile = ({ selectedAlcoholTypes }) => (
           >
             <td className="AlcoholComparisonTableMobile__table-cell">
               <MobileTableCellHeader text={name} />
-              <MobileTableCellAttribute label="volume (ounces)" value={numberFormat(volumeInOunces, { decimalPlaces: 1 })} />
-              <MobileTableCellAttribute format="percentage" label="ABV" value={alcoholByVolume} />
-              <MobileTableCellAttribute label="ounces of pure alcohol" value={numberFormat(ouncesOfPureAlcohol, { decimalPlaces: 1 })} />
-              <MobileTableCellAttribute format="dollar" label="total cost" value={totalCost} />
-              <MobileTableCellAttribute format="dollar" label="cost per ounce of pure alcohol" value={costPerOunceOfPureAlcohol} />
+              <MobileTableCellAttributeConnected
+                format='singleDecimalNumber'
+                label="volume (ounces)"
+                isEditable={true}
+                attributeName='volumeInOunces'
+                slug={slug}
+                value={volumeInOunces}
+              />
+              <MobileTableCellAttributeConnected
+                format="percentage"
+                label="ABV"
+                isEditable={true}
+                attributeName='alcoholByVolume'
+                slug={slug}
+                value={alcoholByVolume}
+              />
+              <MobileTableCellAttributeConnected
+                format='singleDecimalNumber'
+                label="ounces of pure alcohol"
+                value={ouncesOfPureAlcohol}
+              />
+              <MobileTableCellAttributeConnected
+                format="dollar"
+                label="total cost"
+                isEditable={true}
+                attributeName='totalCost'
+                slug={slug}
+                value={totalCost}
+              />
+              <MobileTableCellAttributeConnected
+                format="dollar"
+                label="cost per ounce of pure alcohol"
+                value={costPerOunceOfPureAlcohol}
+              />
             </td>
           </tr>
         )
@@ -42,7 +71,10 @@ AlcoholComparisonTableMobile.propTypes = {
     name: PropTypes.string.isRequired,
     volume: PropTypes.number.isRequired,
     volumeInOunces: PropTypes.number.isRequired,
-    alcoholByVolume: PropTypes.number.isRequired,
+    alcoholByVolume: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string,
+    ]).isRequired,
     totalCost: PropTypes.number.isRequired,
     costPerOunceOfPureAlcohol: PropTypes.number.isRequired,
   })).isRequired,

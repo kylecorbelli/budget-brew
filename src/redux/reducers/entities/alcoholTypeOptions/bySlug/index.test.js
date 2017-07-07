@@ -10,7 +10,7 @@ describe('entities.alcoholTypeOptions.bySlug', () => {
           name: '40 oz.',
           volume: 40,
           volumeUnit: 'ounce',
-          alcoholByVolume: 0.081,
+          alcoholByVolume: 8.1,
           totalCost: 3.48,
         },
         'handle': {
@@ -18,7 +18,7 @@ describe('entities.alcoholTypeOptions.bySlug', () => {
           name: 'handle',
           volume: 1.75,
           volumeUnit: 'liter',
-          alcoholByVolume: 0.4,
+          alcoholByVolume: 40,
           totalCost: 9.98,
         },
       }
@@ -29,7 +29,7 @@ describe('entities.alcoholTypeOptions.bySlug', () => {
           name: '40 oz.',
           volume: 40,
           volumeUnit: 'ounce',
-          alcoholByVolume: 0.081,
+          alcoholByVolume: 8.1,
           totalCost: 3.48,
           volumeInOunces: 40,
           ouncesOfPureAlcohol: 3.24,
@@ -40,11 +40,11 @@ describe('entities.alcoholTypeOptions.bySlug', () => {
           name: 'handle',
           volume: 1.75,
           volumeUnit: 'liter',
-          alcoholByVolume: 0.4,
+          alcoholByVolume: 40,
           totalCost: 9.98,
           volumeInOunces: 59.1745,
-          ouncesOfPureAlcohol: 23.669800000000002,
-          costPerOunceOfPureAlcohol: 0.421634318836661,
+          ouncesOfPureAlcohol: 23.6698,
+          costPerOunceOfPureAlcohol: 0.4216343188366611,
         },
       }
       const newState = bySlug(initialState, actions.performInitialAlcoholComputations())

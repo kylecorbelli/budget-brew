@@ -40,11 +40,10 @@ export const setAlcoholAttributeBeingEdited = (attribute) => ({
   },
 })
 
-export const updateAlcoholInstance = (slug, attributeName, newValue) => ({
+export const updateAlcoholInstance = (slug, newAttributes) => ({
   type: constants.UPDATE_ALCOHOL_INSTANCE,
   payload: {
     slug,
-    attributeName,
-    newValue,
+    newAttributes,
   },
 })

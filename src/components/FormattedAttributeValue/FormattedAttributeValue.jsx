@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {
   numberFormat,
-  percentFormat,
 } from '../../services/text-format'
 
 const FormattedAttributeValue = ({ format, value }) => {
@@ -12,7 +11,10 @@ const FormattedAttributeValue = ({ format, value }) => {
       valueToDisplay = <span><sup>$</sup>{numberFormat(value)}</span>
       break
     case 'percentage':
-      valueToDisplay = <span>{percentFormat(value)}<sup>%</sup></span>
+      valueToDisplay = <span>{numberFormat(value, { decimalPlaces: 1 })}<sup>%</sup></span>
+      break
+    case 'singleDecimalNumber':
+      valueToDisplay = <span>{numberFormat(value, { decimalPlaces: 1 })}</span>
       break
     default:
       valueToDisplay = <span>{value}</span>

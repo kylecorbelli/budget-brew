@@ -20,7 +20,10 @@ AlcoholComparisonTable.propTypes = {
     name: PropTypes.string.isRequired,
     volume: PropTypes.number.isRequired,
     volumeInOunces: PropTypes.number.isRequired,
-    alcoholByVolume: PropTypes.number.isRequired,
+    alcoholByVolume: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string,
+    ]).isRequired,
     totalCost: PropTypes.number.isRequired,
     costPerOunceOfPureAlcohol: PropTypes.number.isRequired,
   })).isRequired,

@@ -7,7 +7,7 @@ const initialState = {
           name: '40 oz.',
           volume: 40,
           volumeUnit: 'ounce',
-          alcoholByVolume: 0.081,
+          alcoholByVolume: 8.1,
           totalCost: 3.48,
         },
         'tall-can': {
@@ -15,7 +15,7 @@ const initialState = {
           name: 'tall can',
           volume: 24,
           volumeUnit: 'ounce',
-          alcoholByVolume: 0.081,
+          alcoholByVolume: 8.1,
           totalCost: 2.48,
         },
         'handle': {
@@ -23,7 +23,7 @@ const initialState = {
           name: 'handle',
           volume: 1.75,
           volumeUnit: 'liter',
-          alcoholByVolume: 0.4,
+          alcoholByVolume: 40,
           totalCost: 9.98,
         },
         'box-wine': {
@@ -31,7 +31,7 @@ const initialState = {
           name: 'box wine',
           volume: 5,
           volumeUnit: 'liter',
-          alcoholByVolume: 0.13,
+          alcoholByVolume: 13,
           totalCost: 12.98,
         },
         '6-pack': {
@@ -39,7 +39,7 @@ const initialState = {
           name: '6 pack',
           volume: 72,
           volumeUnit: 'ounce',
-          alcoholByVolume: 0.05,
+          alcoholByVolume: 5,
           totalCost: 7.98,
         },
         '12-pack': {
@@ -47,7 +47,7 @@ const initialState = {
           name: '12 pack',
           volume: 144,
           volumeUnit: 'ounce',
-          alcoholByVolume: 0.05,
+          alcoholByVolume: 5,
           totalCost: 12.98,
         },
         '24-pack': {
@@ -55,7 +55,7 @@ const initialState = {
           name: '24 pack',
           volume: 288,
           volumeUnit: 'ounce',
-          alcoholByVolume: 0.05,
+          alcoholByVolume: 5,
           totalCost: 18.98,
         },
         '30-pack': {
@@ -63,7 +63,7 @@ const initialState = {
           name: '30 pack',
           volume: 360,
           volumeUnit: 'ounce',
-          alcoholByVolume: 0.05,
+          alcoholByVolume: 5,
           totalCost: 19.98,
         },
         'shot': {
@@ -71,7 +71,7 @@ const initialState = {
           name: 'shot',
           volume: 1.5,
           volumeUnit: 'ounce',
-          alcoholByVolume: 0.4,
+          alcoholByVolume: 40,
           totalCost: 4,
         },
         'pint': {
@@ -79,7 +79,7 @@ const initialState = {
           name: 'pint',
           volume: 16,
           volumeUnit: 'ounce',
-          alcoholByVolume: 0.05,
+          alcoholByVolume: 5,
           totalCost: 6,
         },
         'pitcher': {
@@ -87,7 +87,7 @@ const initialState = {
           name: 'pitcher',
           volume: 60,
           volumeUnit: 'ounce',
-          alcoholByVolume: 0.05,
+          alcoholByVolume: 5,
           totalCost: 16,
         },
         'cocktail': {
@@ -95,7 +95,7 @@ const initialState = {
           name: 'cocktail',
           volume: 4.5,
           volumeUnit: 'ounce',
-          alcoholByVolume: 0.133,
+          alcoholByVolume: 13.3,
           totalCost: 8,
         },
       },
@@ -154,7 +154,48 @@ const initialState = {
         'lowToHigh',
         'highToLow',
       ],
-    }
+    },
+    alcoholAttributes: {
+      byKey: {
+        alcoholByVolume: {
+          key: 'alcoholByVolume',
+          name: 'alcohol by volume',
+        },
+        costPerOunceOfPureAlcohol: {
+          key: 'costPerOunceOfPureAlcohol',
+          name: 'cost per ounce of pure alcohol',
+        },
+        name: {
+          key: 'name',
+          name: 'name',
+        },
+        slug: {
+          key: 'slug',
+          name: 'slug',
+        },
+        totalCost: {
+          key: 'totalCost',
+          name: 'total cost',
+        },
+        volume: {
+          key: 'volume',
+          name: 'volume',
+        },
+        volumeInOunces: {
+          key: 'volumeInOunces',
+          name: 'volume (ounces)',
+        },
+      },
+      allKeys: [
+        'alcoholByVolume',
+        'costPerOunceOfPureAlcohol',
+        'name',
+        'slug',
+        'totalCost',
+        'volume',
+        'volumeInOunces',
+      ],
+    },
   },
   sortAttributeKey: 'costPerOunceOfPureAlcohol',
   sortOrderKey: 'lowToHigh',

@@ -27,26 +27,34 @@ describe('entities.selectedAlcoholTypes.bySlug', () => {
   describe('UPDATE_ALCOHOL_INSTANCE', () => {
     it('should update a specified alcohol instance', () => {
       const targetSlug = 'target-slug'
-      const oldName = 'target slug'
+      const targetSlugName = 'target slug'
+      const otherSlug = 'another-slug'
       const otherSlugName = 'another slug'
       const newName = 'better name'
       const initialState = {
         [targetSlug]: {
-          name: oldName,
+          name: targetSlugName,
+          slug: targetSlug,
         },
-        'another-slug': {
+        [otherSlug]: {
           name: otherSlugName,
+          slug: otherSlug,
         },
+      }
+      const newAttributes = {
+        name: newName,
       }
       const expectedNewState = {
         [targetSlug]: {
           name: newName,
+          slug: targetSlug,
         },
-        'another-slug': {
+        [otherSlug]: {
           name: otherSlugName,
+          slug: otherSlug,
         },
       }
-      const newState = bySlug(initialState, actions.updateAlcoholInstance(targetSlug, 'name', newName))
+      const newState = bySlug(initialState, actions.updateAlcoholInstance(targetSlug, newAttributes))
       expect(newState).toEqual(expectedNewState)
     })
   })

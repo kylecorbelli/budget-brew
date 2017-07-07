@@ -18,7 +18,7 @@ const bySlug = (state = {}, action) => {
           default:
             break
         }
-        newAlcoholTypeOption.ouncesOfPureAlcohol = newAlcoholTypeOption.volumeInOunces * newAlcoholTypeOption.alcoholByVolume
+        newAlcoholTypeOption.ouncesOfPureAlcohol = newAlcoholTypeOption.volumeInOunces * newAlcoholTypeOption.alcoholByVolume / 100
         newAlcoholTypeOption.costPerOunceOfPureAlcohol = newAlcoholTypeOption.totalCost / newAlcoholTypeOption.ouncesOfPureAlcohol
       })
       return newState

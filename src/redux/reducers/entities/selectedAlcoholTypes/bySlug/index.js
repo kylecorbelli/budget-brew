@@ -19,14 +19,13 @@ const bySlug = (state = {}, action) => {
     case constants.UPDATE_ALCOHOL_INSTANCE:
       const {
         slug,
-        attributeName,
-        newValue,
+        newAttributes,
       } = action.payload
       return {
         ...state,
         [slug]: {
           ...state[slug],
-          [attributeName]: newValue,
+          ...newAttributes,
         },
       }
     default:
