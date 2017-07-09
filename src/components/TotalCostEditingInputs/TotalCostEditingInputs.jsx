@@ -5,26 +5,12 @@ import './TotalCostEditingInputs.css'
 export default class TotalCostEditingInputs extends Component {
   static propTypes = {
     alcoholInstance: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
       totalCost: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
       ]).isRequired,
     }),
     updateInputValue: PropTypes.func.isRequired,
-  }
-
-  constructor (props) {
-    super(props)
-    const {
-      alcoholInstance: {
-        totalCost,
-      },
-    } = props
-    this.state = {
-      totalCost,
-    }
   }
 
   componentDidMount () {

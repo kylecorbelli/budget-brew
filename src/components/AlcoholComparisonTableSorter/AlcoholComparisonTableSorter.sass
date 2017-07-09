@@ -1,6 +1,8 @@
 @import 'styles/shared.sass'
 
 .AlcoholComparisonTableSorter
+  animation-name: fadeIn
+  animation-duration: 0.4s
   display: flex
   flex-wrap: wrap
   +from($breakpoint-tablet)
@@ -38,11 +40,11 @@
     flex-basis: 40%
 
 .AlcoholComparisonTableSorter__sort-attribute-container
-  flex-grow: 3
-  flex-shrink: 3
+  flex-grow: 10
+  flex-shrink: 10
 
 .AlcoholComparisonTableSorter__sort-order-container
-  flex-grow: 2
-  flex-shrink: 2
+  flex-grow: 1
+  flex-shrink: 1
   +from($breakpoint-tablet)
     margin-left: 1rem

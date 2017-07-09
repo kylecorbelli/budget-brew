@@ -5,26 +5,12 @@ import './AlcoholByVolumeEditingInputs.css'
 export default class AlcoholByVolumeEditingInputs extends Component {
   static propTypes = {
     alcoholInstance: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
       alcoholByVolume: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
       ]).isRequired,
     }),
     updateInputValue: PropTypes.func.isRequired,
-  }
-
-  constructor (props) {
-    super(props)
-    const {
-      alcoholInstance: {
-        alcoholByVolume,
-      },
-    } = props
-    this.state = {
-      alcoholByVolume,
-    }
   }
 
   componentDidMount () {

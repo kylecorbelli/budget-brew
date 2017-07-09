@@ -50,7 +50,10 @@ export default class AlcoholComparisonTableTabletAndDesktop extends Component {
       <table className="AlcoholComparisonTableTabletAndDesktop">
         <thead>
           <tr>
-            <th>type</th>
+            <SortableTableHeaderConnected
+              targetSortAttributeKey='name'
+              title='type'
+            />
             <th>volume (ounces)</th>
             <SortableTableHeaderConnected
               targetSortAttributeKey='alcoholByVolume'
@@ -80,7 +83,10 @@ export default class AlcoholComparisonTableTabletAndDesktop extends Component {
             } = alcoholType
             return (
               <tr key={`alcohol-record-tablet-and-desktop-${index}`}>
-                <td>{name}</td>
+                <td
+                  className="AlcoholComparisonTableTabletAndDesktop__editable-attribute"
+                  onClick={() => this.handleAttributeClick(slug, 'name')}
+                >{name}</td>
                 <td
                   className="AlcoholComparisonTableTabletAndDesktop__editable-attribute"
                   onClick={() => this.handleAttributeClick(slug, 'volumeInOunces')}

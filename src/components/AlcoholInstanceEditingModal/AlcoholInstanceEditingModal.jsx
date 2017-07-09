@@ -5,6 +5,7 @@ import VolumeEditingInputs from '../VolumeEditingInputs'
 import Button from '../Button'
 import AlcoholByVolumeEditingInputs from '../AlcoholByVolumeEditingInputs'
 import TotalCostEditingInputs from '../TotalCostEditingInputs'
+import NameEditingInputs from '../NameEditingInputs'
 import './AlcoholInstanceEditingModal.css'
 
 export default class AlcoholInstanceEditingModal extends Component {
@@ -60,6 +61,7 @@ export default class AlcoholInstanceEditingModal extends Component {
       volumeInOunces: <VolumeEditingInputs alcoholInstance={alcoholInstance} updateInputValue={this.updateInputValue} />,
       alcoholByVolume: <AlcoholByVolumeEditingInputs alcoholInstance={alcoholInstance} updateInputValue={this.updateInputValue} />,
       totalCost: <TotalCostEditingInputs alcoholInstance={alcoholInstance} updateInputValue={this.updateInputValue} />,
+      name: <NameEditingInputs alcoholInstance={alcoholInstance} updateInputValue={this.updateInputValue} />
     }
     return editingFormMap[attributeBeingEdited]
   }

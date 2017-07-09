@@ -23,7 +23,11 @@ const AlcoholComparisonTableMobile = ({ selectedAlcoholTypes, showAlcoholInstanc
             key={`alcohol-record-mobile-${index}`}
           >
             <td className="AlcoholComparisonTableMobile__table-cell">
-              <MobileTableCellHeader text={name} />
+              <MobileTableCellHeader
+                showAlcoholInstanceEditingModal={showAlcoholInstanceEditingModal}
+                slug={slug}
+                text={name}
+              />
               <MobileTableCellAttribute
                 format='singleDecimalNumber'
                 label="volume (ounces)"
@@ -72,6 +76,7 @@ const AlcoholComparisonTableMobile = ({ selectedAlcoholTypes, showAlcoholInstanc
 AlcoholComparisonTableMobile.propTypes = {
   selectedAlcoholTypes: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
     volume: PropTypes.oneOfType([
       PropTypes.number,
       PropTypes.string,
