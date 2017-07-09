@@ -12,12 +12,12 @@ export default class SortableTableHeader extends Component {
     title: PropTypes.string.isRequired,
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.sortByHeaderAttribute = this.sortByHeaderAttribute.bind(this)
   }
 
-  generateClassName() {
+  generateClassName () {
     const {
       selectedSortAttributeKey,
       targetSortAttributeKey,
@@ -28,7 +28,7 @@ export default class SortableTableHeader extends Component {
     `
   }
 
-  sortByHeaderAttribute() {
+  sortByHeaderAttribute () {
     const {
       selectedSortAttributeKey,
       selectedSortOrderKey,
@@ -42,7 +42,7 @@ export default class SortableTableHeader extends Component {
     setSortOrderKey(newSortOrderKey)
   }
 
-  render() {
+  render () {
     const {
       title,
     } = this.props

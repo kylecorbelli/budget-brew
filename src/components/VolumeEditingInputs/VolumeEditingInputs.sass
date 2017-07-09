@@ -1,0 +1,27 @@
+@import 'styles/shared.sass'
+@import 'styles/alcohol-instance-editing-inputs.sass'
+
+.VolumeEditingInputs
+  @extend .AlcoholInstanceEditingInputs
+
+.VolumeEditingInputs__input-group
+  @extend .AlcoholInstanceEditingInputs__input-group
+
+.VolumeEditingInputs__volume-input
+  @extend .AlcoholInstanceEditingInputs__input
+  flex: 3
+
+.VolumeEditingInputs__volume-units-select
+  @extend .AlcoholInstanceEditingInputs__input-symbol
+  appearance: none
+  background-color: rgba(0, 0, 0, 0)
+  border-left: 0
+  border-radius: 0
+  border-right: 1px solid black
+  color: $teal
+  flex: 2
+  font-size: 1em
+  font-style: italic
+  margin: 0
+  outline: none
+  text-align-last: center

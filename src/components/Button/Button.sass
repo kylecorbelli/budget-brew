@@ -1,0 +1,35 @@
+@import 'styles/shared.sass'
+
+=colored-button($color, $light-color)
+  border: 1px solid $color
+  color: $color
+  +from($breakpoint-tablet)
+    transition: background-color 0.2s ease-out, color 0.2s ease-out
+    &:hover
+      background-color: $color
+      color: white
+    &:active
+      background-color: $light-color
+
+.Button
+  background-color: rgba(0, 0, 0, 0)
+  border: none
+  color: white
+  font-size: 1em
+  font-weight: normal
+  outline: none
+  padding: 15px
+  +from($breakpoint-tablet)
+    cursor: pointer
+
+.Button--orange
+  +colored-button($orange, $lightorange)
+
+.Button--teal
+  +colored-button($teal, $lightteal)
+
+.Button--blue
+  +colored-button($blue, $lightblue)
+
+.Button--gray
+  +colored-button($gray, $lightgray)

@@ -9,15 +9,40 @@ export default class AlcoholComparisonTableTabletAndDesktop extends Component {
   static propTypes = {
     selectedAlcoholTypes: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string.isRequired,
-      volume: PropTypes.number.isRequired,
-      volumeInOunces: PropTypes.number.isRequired,
-      alcoholByVolume: PropTypes.number.isRequired,
-      totalCost: PropTypes.number.isRequired,
+      volume: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+      ]).isRequired,
+      volumeInOunces: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+      ]).isRequired,
+      alcoholByVolume: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+      ]).isRequired,
+      totalCost: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+      ]).isRequired,
       costPerOunceOfPureAlcohol: PropTypes.number.isRequired,
     })).isRequired,
+    showAlcoholInstanceEditingModal: PropTypes.func.isRequired,
   }
 
-  render() {
+  constructor (props) {
+    super(props)
+    this.handleAttributeClick = this.handleAttributeClick.bind(this)
+  }
+
+  handleAttributeClick (slug, attributeName) {
+    const {
+      showAlcoholInstanceEditingModal,
+    } = this.props
+    showAlcoholInstanceEditingModal(slug, attributeName)
+  }
+
+  render () {
     const {
       selectedAlcoholTypes,
     } = this.props
@@ -25,7 +50,10 @@ export default class AlcoholComparisonTableTabletAndDesktop extends Component {
       <table className="AlcoholComparisonTableTabletAndDesktop">
         <thead>
           <tr>
-            <th>type</th>
+            <SortableTableHeaderConnected
+              targetSortAttributeKey='name'
+              title='type'
+            />
             <th>volume (ounces)</th>
             <SortableTableHeaderConnected
               targetSortAttributeKey='alcoholByVolume'
@@ -49,18 +77,35 @@ export default class AlcoholComparisonTableTabletAndDesktop extends Component {
               volumeInOunces,
               alcoholByVolume,
               ouncesOfPureAlcohol,
+              slug,
               totalCost,
               costPerOunceOfPureAlcohol,
             } = alcoholType
             return (
               <tr key={`alcohol-record-tablet-and-desktop-${index}`}>
-                <td>{name}</td>
-                <td>{numberFormat(volumeInOunces, { decimalPlaces: 1 })}</td>
-                <td>
+                <td
+                  className="AlcoholComparisonTableTabletAndDesktop__editable-attribute"
+                  onClick={this.handleAttributeClick.bind(this, slug, 'name')}
+                >
+                  {name}
+                </td>
+                <td
+                  className="AlcoholComparisonTableTabletAndDesktop__editable-attribute"
+                  onClick={this.handleAttributeClick.bind(this, slug, 'volumeInOunces')}
+                >
+                  {numberFormat(volumeInOunces, { decimalPlaces: 1 })}
+                </td>
+                <td
+                  className="AlcoholComparisonTableTabletAndDesktop__editable-attribute"
+                  onClick={this.handleAttributeClick.bind(this, slug, 'alcoholByVolume')}
+                >
                   <FormattedAttributeValue format="percentage" value={alcoholByVolume} />
                 </td>
                 <td>{numberFormat(ouncesOfPureAlcohol, { decimalPlaces: 1 })}</td>
-                <td>
+                <td
+                  className="AlcoholComparisonTableTabletAndDesktop__editable-attribute"
+                  onClick={this.handleAttributeClick.bind(this, slug, 'totalCost')}
+                >
                   <FormattedAttributeValue format="dollar" value={totalCost} />
                 </td>
                 <td>

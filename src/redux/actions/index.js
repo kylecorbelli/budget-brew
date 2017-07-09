@@ -25,3 +25,23 @@ export const setSortOrderKey = (newSortOrderKey) => ({
     newSortOrderKey,
   },
 })
+
+export const updateAlcoholInstance = (slug, newAttributes) => ({
+  type: constants.UPDATE_ALCOHOL_INSTANCE,
+  payload: {
+    slug,
+    newAttributes,
+  },
+})
+
+export const showAlcoholInstanceEditingModal = (slugToEdit, attributeToEdit) => ({
+  type: constants.SHOW_ALCOHOL_INSTANCE_EDITING_MODAL,
+  payload: {
+    attributeToEdit,
+    slugToEdit,
+  },
+})
+
+export const hideAlcoholInstanceEditingModal = () => ({
+  type: constants.HIDE_ALCOHOL_INSTANCE_EDITING_MODAL,
+})
