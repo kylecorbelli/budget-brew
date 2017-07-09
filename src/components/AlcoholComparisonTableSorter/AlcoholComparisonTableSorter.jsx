@@ -21,7 +21,7 @@ const AlcoholComparisonTableSorter = ({
           {sortAttributeOptions.map((sortAttributeOption, index) => (
             <OptionTile
               key={`OptionTile-sort-attribute-${index}`}
-              onClick={() => setSortAttributeKey(sortAttributeOption.key)}
+              onClick={setSortAttributeKey.bind(this, sortAttributeOption.key)}
             >
               <span
                 className={`
@@ -41,7 +41,7 @@ const AlcoholComparisonTableSorter = ({
           {sortOrderOptions.map((sortOrderOption, index) => (
             <OptionTile
               key={`OptionTile-order-${index}`}
-              onClick={() => setSortOrderKey(sortOrderOption.key)}
+              onClick={setSortOrderKey.bind(this, sortOrderOption.key)}
             >
               <span
                 className={`

@@ -29,7 +29,7 @@ export default class NameEditingInputs extends Component {
             className="NameEditingInputs__input"
             name="name"
             onChange={updateInputValue}
-            ref={(node) => this.focalNode = node}
+            ref={node => this.focalNode = node}
             value={name}
           />
         </div>

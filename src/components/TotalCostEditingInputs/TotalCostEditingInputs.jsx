@@ -34,7 +34,7 @@ export default class TotalCostEditingInputs extends Component {
             className="TotalCostEditingInputs__input"
             name="totalCost"
             onChange={updateInputValue}
-            ref={(node) => this.focalNode = node}
+            ref={node => this.focalNode = node}
             value={totalCost}
           />
         </div>

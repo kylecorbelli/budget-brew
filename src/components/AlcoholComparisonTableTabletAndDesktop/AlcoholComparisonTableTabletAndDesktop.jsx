@@ -85,24 +85,26 @@ export default class AlcoholComparisonTableTabletAndDesktop extends Component {
               <tr key={`alcohol-record-tablet-and-desktop-${index}`}>
                 <td
                   className="AlcoholComparisonTableTabletAndDesktop__editable-attribute"
-                  onClick={() => this.handleAttributeClick(slug, 'name')}
-                >{name}</td>
+                  onClick={this.handleAttributeClick.bind(this, slug, 'name')}
+                >
+                  {name}
+                </td>
                 <td
                   className="AlcoholComparisonTableTabletAndDesktop__editable-attribute"
-                  onClick={() => this.handleAttributeClick(slug, 'volumeInOunces')}
+                  onClick={this.handleAttributeClick.bind(this, slug, 'volumeInOunces')}
                 >
                   {numberFormat(volumeInOunces, { decimalPlaces: 1 })}
                 </td>
                 <td
                   className="AlcoholComparisonTableTabletAndDesktop__editable-attribute"
-                  onClick={() => this.handleAttributeClick(slug, 'alcoholByVolume')}
+                  onClick={this.handleAttributeClick.bind(this, slug, 'alcoholByVolume')}
                 >
                   <FormattedAttributeValue format="percentage" value={alcoholByVolume} />
                 </td>
                 <td>{numberFormat(ouncesOfPureAlcohol, { decimalPlaces: 1 })}</td>
                 <td
                   className="AlcoholComparisonTableTabletAndDesktop__editable-attribute"
-                  onClick={() => this.handleAttributeClick(slug, 'totalCost')}
+                  onClick={this.handleAttributeClick.bind(this, slug, 'totalCost')}
                 >
                   <FormattedAttributeValue format="dollar" value={totalCost} />
                 </td>

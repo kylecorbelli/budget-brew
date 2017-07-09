@@ -27,7 +27,7 @@ export default class AlcoholInstanceEditingModal extends Component {
     super(props)
     const {
       alcoholInstance,
-    } = this.props
+    } = props
     this.state = {
       modalStateClassName: 'AlcoholInstanceEditingModal--closed',
       modalOverlayStateClassName: 'AlcoholInstanceEditingModal__overlay--closed',

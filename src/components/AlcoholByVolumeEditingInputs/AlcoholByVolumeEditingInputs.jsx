@@ -22,7 +22,7 @@ export default class AlcoholByVolumeEditingInputs extends Component {
       updateInputValue,
       alcoholInstance: {
         alcoholByVolume,
-      }
+      },
     } = this.props
     return (
       <div className="AlcoholByVolumeEditingInputs">
@@ -33,7 +33,7 @@ export default class AlcoholByVolumeEditingInputs extends Component {
             className="AlcoholByVolumeEditingInputs__input"
             name="alcoholByVolume"
             onChange={updateInputValue}
-            ref={(node) => this.focalNode = node}
+            ref={node => this.focalNode = node}
             value={alcoholByVolume}
           />
           <div className="AlcoholByVolumeEditingInputs__input-symbol">&#37;</div>

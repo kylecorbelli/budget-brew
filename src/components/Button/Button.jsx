@@ -14,12 +14,12 @@ export default class Button extends Component {
     color: 'orange',
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.determineClassName = this.determineClassName.bind(this)
   }
 
-  determineClassName() {
+  determineClassName () {
     const {
       color,
       className,
@@ -29,7 +29,7 @@ export default class Button extends Component {
     return `${baseClassName} ${colorClassName}`
   }
 
-  render() {
+  render () {
     const {
       children,
       onClick,

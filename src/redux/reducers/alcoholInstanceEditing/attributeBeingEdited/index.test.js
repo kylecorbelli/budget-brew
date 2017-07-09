@@ -7,15 +7,6 @@ describe('alcoholInstanceEditing.attributeBeingEdited', () => {
     expect(newState).toBe(null)
   })
 
-  describe('SET_ALCOHOL_ATTRIBUTE_BEING_EDITED', () => {
-    it('should set the attribute being edited', () => {
-      const attribute = 'totalCost'
-      const initialState = 'costPerOunceOfPureAlcohol'
-      const newState = attributeBeingEdited(initialState, actions.setAlcoholAttributeBeingEdited(attribute))
-      expect(newState).toBe(attribute)
-    })
-  })
-
   describe('SHOW_ALCOHOL_INSTANCE_EDITING_MODAL', () => {
     it('should set the attribute being edited', () => {
       const slugToEdit = 'some-slug'

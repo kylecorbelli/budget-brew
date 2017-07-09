@@ -5,21 +5,16 @@ import {
 } from '../../services/text-format'
 
 const FormattedAttributeValue = ({ format, value }) => {
-  let valueToDisplay
   switch (format) {
     case 'dollar':
-      valueToDisplay = <span><sup>$</sup>{numberFormat(value)}</span>
-      break
+      return <span><sup>&#36;</sup>{numberFormat(value)}</span>
     case 'percentage':
-      valueToDisplay = <span>{numberFormat(value, { decimalPlaces: 1 })}<sup>%</sup></span>
-      break
+      return <span>{numberFormat(value, { decimalPlaces: 1 })}<sup>&#37;</sup></span>
     case 'singleDecimalNumber':
-      valueToDisplay = <span>{numberFormat(value, { decimalPlaces: 1 })}</span>
-      break
+      return <span>{numberFormat(value, { decimalPlaces: 1 })}</span>
     default:
-      valueToDisplay = <span>{value}</span>
+      return <span>{value}</span>
   }
-  return valueToDisplay
 }
 
 FormattedAttributeValue.propTypes = {

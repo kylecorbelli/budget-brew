@@ -9,7 +9,7 @@ const MobileTableCellHeader = ({
 }) => (
   <p
     className="MobileTableCellHeader"
-    onClick={() => showAlcoholInstanceEditingModal(slug, 'name')}
+    onClick={showAlcoholInstanceEditingModal.bind(this, slug, 'name')}
   >{text}</p>
 )
 

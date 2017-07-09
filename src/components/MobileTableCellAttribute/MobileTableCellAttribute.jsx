@@ -17,12 +17,12 @@ export default class MobileTableCellAttribute extends Component {
     showAlcoholInstanceEditingModal: PropTypes.func,
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick() {
+  handleClick () {
     const {
       attributeName,
       isEditable,
@@ -33,7 +33,7 @@ export default class MobileTableCellAttribute extends Component {
     showAlcoholInstanceEditingModal(slug, attributeName)
   }
 
-  render() {
+  render () {
     const {
       format,
       isEditable,
@@ -42,15 +42,15 @@ export default class MobileTableCellAttribute extends Component {
     } = this.props
     return (
       <p
-        className={`
-          MobileTableCellAttribute
-          ${(isEditable ? 'MobileTableCellAttribute--editable' : null)}
-        `}
+        className='MobileTableCellAttribute'
         onClick={this.handleClick}
       >
         <span className="MobileTableCellAttribute__label">{label}:</span>
         <span
-          className='MobileTableCellAttribute__value'
+          className={`
+            MobileTableCellAttribute__value
+            ${(isEditable ? 'MobileTableCellAttribute__value--editable' : null)}
+          `}
         >
           <FormattedAttributeValue format={format} value={value} />
         </span>

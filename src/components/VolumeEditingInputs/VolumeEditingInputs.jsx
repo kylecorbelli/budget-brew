@@ -51,7 +51,7 @@ export default class VolumeEditingInputs extends Component {
             className="VolumeEditingInputs__volume-input"
             name="volume"
             onChange={updateInputValue}
-            ref={(node) => this.focalNode = node}
+            ref={node => this.focalNode = node}
             value={volume}
           />
           <select

@@ -7,15 +7,6 @@ describe('alcoholInstanceEditing.slugBeingEdited', () => {
     expect(newState).toBe(null)
   })
 
-  describe('SET_ALCOHOL_SLUG_BEING_EDITED', () => {
-    it('should set the slug being edited', () => {
-      const slug = 'new-slug'
-      const initialState = 'old-slug'
-      const newState = slugBeingEdited(initialState, actions.setAlcoholSlugBeingEdited(slug))
-      expect(newState).toBe(slug)
-    })
-  })
-
   describe('SHOW_ALCOHOL_INSTANCE_EDITING_MODAL', () => {
     it('should set the slug being edited', () => {
       const slugToEdit = 'some-to-edit'
