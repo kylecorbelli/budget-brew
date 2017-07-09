@@ -7,7 +7,7 @@ export default class ClickConfirmationBlock extends Component {
     confirmationText: PropTypes.string.isRequired,
   }
 
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       showConfirmationContent: false,
@@ -15,7 +15,7 @@ export default class ClickConfirmationBlock extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick() {
+  handleClick () {
     this.setState({
       showConfirmationContent: true,
     })
@@ -26,7 +26,7 @@ export default class ClickConfirmationBlock extends Component {
     }, 2500)
   }
 
-  render() {
+  render () {
     const {
       children,
       confirmationText,
