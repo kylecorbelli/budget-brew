@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import AlcoholComparisonTable from '../components/AlcoholComparisonTable'
 import { sortAlcoholSelections } from '../services/sorting'
+import { showAlcoholInstanceEditingModal } from '../redux/actions'
 
 const mapStateToProps = (state) => {
   const {
@@ -21,7 +22,7 @@ const mapStateToProps = (state) => {
 
 const AlcoholComparisonTableConnected = connect(
   mapStateToProps,
-  null,
+  { showAlcoholInstanceEditingModal },
 )(AlcoholComparisonTable)
 
 export default AlcoholComparisonTableConnected

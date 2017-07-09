@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 import AlcoholInstanceEditingModal from '../components/AlcoholInstanceEditingModal'
 import {
-  setAlcoholAttributeBeingEdited,
-  setAlcoholSlugBeingEdited,
+  hideAlcoholInstanceEditingModal,
+  showAlcoholInstanceEditingModal,
   updateAlcoholInstance,
 } from '../redux/actions'
 
@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
   const {
     alcoholInstanceEditing: {
       attributeBeingEdited,
+      isEditingModalShown,
       slugBeingEdited,
     },
     entities: {
@@ -23,9 +24,8 @@ const mapStateToProps = (state) => {
   } = state
   const objectToReturn = {
     attributeBeingEdited,
+    isEditingModalShown,
     slugBeingEdited,
-  }
-  if (alcoholAttributesByKey[attributeBeingEdited]) {
   }
   if (attributeBeingEdited && slugBeingEdited) {
     objectToReturn.attributeName = alcoholAttributesByKey[attributeBeingEdited].name
@@ -37,8 +37,8 @@ const mapStateToProps = (state) => {
 const AlcoholInstanceEditingModalConnected = connect(
   mapStateToProps,
   {
-    setAlcoholAttributeBeingEdited,
-    setAlcoholSlugBeingEdited,
+    hideAlcoholInstanceEditingModal,
+    showAlcoholInstanceEditingModal,
     updateAlcoholInstance,
   },
 )(AlcoholInstanceEditingModal)

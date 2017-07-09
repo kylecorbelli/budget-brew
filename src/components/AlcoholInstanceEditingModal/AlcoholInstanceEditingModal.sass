@@ -3,6 +3,7 @@
 .AlcoholInstanceEditingModal
   background-color: white
   box-sizing: border-box
+  max-width: 300px
   outline: none
   padding: 20px
   transition: opacity 0.2s ease-out
@@ -26,7 +27,7 @@
   transition: background-color 0.2s ease-out
 
 .AlcoholInstanceEditingModal__overlay--open
-  background-color: rgba(0, 0, 0, 0.80)
+  background-color: rgba(0, 0, 0, 0.85)
 
 .AlcoholInstanceEditingModal__overlay--closed
   background-color: rgba(0, 0, 0, 0)
@@ -43,7 +44,7 @@
 .AlcoholInstanceEditingModal__subheadline
   // border: 1px solid blue
   font-size: 0.8em
-  margin-bottom: 20px
+  margin-bottom: $space-between-editing-input-elements
 
 .AlcoholInstanceEditingModal__form
   // border: 1px solid green

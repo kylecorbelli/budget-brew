@@ -1,6 +1,9 @@
 import * as constants from '../../../../constants'
-
-const litersToOunces = (numberOfLiters) => numberOfLiters * 33.814
+import {
+  calculateOuncesOfPureAlcohol,
+  calculateCostPerOunceOfPureAlcohol,
+  calculateVolumeInOunces,
+} from '../../../../../services/alcoholCalculations'
 
 const bySlug = (state = {}, action) => {
   switch (action.type) {
@@ -8,18 +11,9 @@ const bySlug = (state = {}, action) => {
       const newState = {}
       Object.keys(state).forEach((key) => {
         const newAlcoholTypeOption = newState[key] = { ...state[key] }
-        switch (newAlcoholTypeOption.volumeUnit) {
-          case 'liter':
-            newAlcoholTypeOption.volumeInOunces = litersToOunces(newAlcoholTypeOption.volume)
-            break
-          case 'ounce':
-            newAlcoholTypeOption.volumeInOunces = newAlcoholTypeOption.volume
-            break
-          default:
-            break
-        }
-        newAlcoholTypeOption.ouncesOfPureAlcohol = newAlcoholTypeOption.volumeInOunces * newAlcoholTypeOption.alcoholByVolume / 100
-        newAlcoholTypeOption.costPerOunceOfPureAlcohol = newAlcoholTypeOption.totalCost / newAlcoholTypeOption.ouncesOfPureAlcohol
+        newAlcoholTypeOption.volumeInOunces = calculateVolumeInOunces(newAlcoholTypeOption.volume, newAlcoholTypeOption.volumeUnits)
+        newAlcoholTypeOption.ouncesOfPureAlcohol = calculateOuncesOfPureAlcohol(newAlcoholTypeOption.volumeInOunces, newAlcoholTypeOption.alcoholByVolume)
+        newAlcoholTypeOption.costPerOunceOfPureAlcohol = calculateCostPerOunceOfPureAlcohol(newAlcoholTypeOption.totalCost, newAlcoholTypeOption.ouncesOfPureAlcohol)
       })
       return newState
     default:

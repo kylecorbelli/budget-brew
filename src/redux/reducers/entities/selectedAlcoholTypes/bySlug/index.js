@@ -1,4 +1,9 @@
 import * as constants from '../../../../constants'
+import {
+  calculateOuncesOfPureAlcohol,
+  calculateCostPerOunceOfPureAlcohol,
+  calculateVolumeInOunces,
+} from '../../../../../services/alcoholCalculations'
 
 const bySlug = (state = {}, action) => {
   switch (action.type) {
@@ -21,13 +26,18 @@ const bySlug = (state = {}, action) => {
         slug,
         newAttributes,
       } = action.payload
-      return {
+      const newState = {
         ...state,
         [slug]: {
           ...state[slug],
           ...newAttributes,
         },
       }
+      const targetAlcoholInstance = newState[slug]
+      targetAlcoholInstance.volumeInOunces = calculateVolumeInOunces(targetAlcoholInstance.volume, targetAlcoholInstance.volumeUnits)
+      targetAlcoholInstance.ouncesOfPureAlcohol = calculateOuncesOfPureAlcohol(targetAlcoholInstance.volumeInOunces, targetAlcoholInstance.alcoholByVolume)
+      targetAlcoholInstance.costPerOunceOfPureAlcohol = calculateCostPerOunceOfPureAlcohol(targetAlcoholInstance.totalCost, targetAlcoholInstance.ouncesOfPureAlcohol)
+      return newState
     default:
       return state
   }

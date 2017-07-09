@@ -1,27 +1,24 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Modal from 'react-modal'
-import VolumeEditingForm from '../VolumeEditingForm'
+import VolumeEditingInputs from '../VolumeEditingInputs'
 import Button from '../Button'
 import AlcoholByVolumeEditingInputs from '../AlcoholByVolumeEditingInputs'
+import TotalCostEditingInputs from '../TotalCostEditingInputs'
 import './AlcoholInstanceEditingModal.css'
-
-// TODO: make real components for these:
-const TotalCostEditingForm = () => <div>Total Cost Editing Form</div>
 
 export default class AlcoholInstanceEditingModal extends Component {
   static propTypes = {
-    isOpen: PropTypes.bool.isRequired,
     alcoholInstance: PropTypes.shape({
       name: PropTypes.string.isRequired,
       slug: PropTypes.string.isRequired,
     }),
     attributeBeingEdited: PropTypes.string,
     attributeName: PropTypes.string,
-    onRequestClose: PropTypes.func,
+    isEditingModalShown: PropTypes.bool.isRequired,
     slugBeingEdited: PropTypes.string,
-    setAlcoholAttributeBeingEdited: PropTypes.func.isRequired,
-    setAlcoholSlugBeingEdited: PropTypes.func.isRequired,
+    hideAlcoholInstanceEditingModal: PropTypes.func.isRequired,
+    showAlcoholInstanceEditingModal: PropTypes.func.isRequired,
     updateAlcoholInstance: PropTypes.func.isRequired,
   }
 
@@ -48,7 +45,7 @@ export default class AlcoholInstanceEditingModal extends Component {
       alcoholInstance,
     } = nextProps
     this.setState({
-      alcoholInstance,
+      alcoholInstance: { ...alcoholInstance },
     })
   }
 
@@ -60,9 +57,9 @@ export default class AlcoholInstanceEditingModal extends Component {
       alcoholInstance,
     } = this.state
     const editingFormMap = {
-      volumeInOunces: <VolumeEditingForm alcoholInstance={alcoholInstance} updateInputValue={this.updateInputValue} />,
+      volumeInOunces: <VolumeEditingInputs alcoholInstance={alcoholInstance} updateInputValue={this.updateInputValue} />,
       alcoholByVolume: <AlcoholByVolumeEditingInputs alcoholInstance={alcoholInstance} updateInputValue={this.updateInputValue} />,
-      totalCost: <TotalCostEditingForm alcoholInstance={alcoholInstance} updateInputValue={this.updateInputValue} />,
+      totalCost: <TotalCostEditingInputs alcoholInstance={alcoholInstance} updateInputValue={this.updateInputValue} />,
     }
     return editingFormMap[attributeBeingEdited]
   }
@@ -83,10 +80,10 @@ export default class AlcoholInstanceEditingModal extends Component {
 
   closeModal () {
     const {
-      onRequestClose,
+      hideAlcoholInstanceEditingModal,
     } = this.props
     this.setClosedStateClassNames()
-    setTimeout(onRequestClose, 200)
+    setTimeout(hideAlcoholInstanceEditingModal, 200)
   }
 
   updateInputValue (event) {
@@ -122,12 +119,12 @@ export default class AlcoholInstanceEditingModal extends Component {
 
   render () {
     const {
+      alcoholInstance,
       attributeBeingEdited,
-      attributeName,
-      isOpen,
+      isEditingModalShown,
       slugBeingEdited,
     } = this.props
-    const alcoholInstance = this.props.alcoholInstance
+    const attributeName = attributeBeingEdited === 'volumeInOunces' ? 'volume' : this.props.attributeName
     const alcoholInstanceName = alcoholInstance ? alcoholInstance.name : null
     const {
       modalStateClassName,
@@ -138,7 +135,7 @@ export default class AlcoholInstanceEditingModal extends Component {
       <Modal
         className={`AlcoholInstanceEditingModal ${modalStateClassName}`}
         overlayClassName={`AlcoholInstanceEditingModal__overlay ${modalOverlayStateClassName}`}
-        isOpen={isOpen}
+        isOpen={Boolean(isEditingModalShown && attributeBeingEdited && slugBeingEdited)}
         onAfterOpen={this.setOpenStateClassNames}
         contentLabel={`AlcoholInstanceEditingModal-${attributeBeingEdited}-${slugBeingEdited}`}
         onRequestClose={this.closeModal}
@@ -158,7 +155,7 @@ export default class AlcoholInstanceEditingModal extends Component {
             </Button>
             <Button
               type='submit'
-              color='teal'
+              color='blue'
               className='AlcoholInstanceEditingModal__button-submit'
             >
               update

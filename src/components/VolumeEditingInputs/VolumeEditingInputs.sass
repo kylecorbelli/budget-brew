@@ -1,0 +1,28 @@
+@import 'styles/shared.sass'
+@import 'styles/single-input-editing-inputs.sass'
+
+.VolumeEditingInputs
+  @extend .SingleInputEditingInputs
+
+.VolumeEditingInputs__input-group
+  @extend .SingleInputEditingInputs__input-group
+
+.VolumeEditingInputs__volume-input
+  @extend .SingleInputEditingInputs__input
+  flex: 3
+
+.VolumeEditingInputs__volume-units-select
+  @extend .SingleInputEditingInputs__input-symbol
+  background-color: rgba(0, 0, 0, 0)
+  border-left: 0
+  border-right: 1px solid black
+  border-radius: 0
+  color: $teal
+  flex: 2
+  font-size: 1em
+  font-style: italic
+  margin: 0
+  outline: none
+  text-align-last: center
+  option
+    border: 1px solid green

@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './AlcoholByVolumeEditingInputs.css'
+import './TotalCostEditingInputs.css'
 
-export default class AlcoholByVolumeEditingInputs extends Component {
+export default class TotalCostEditingInputs extends Component {
   static propTypes = {
     alcoholInstance: PropTypes.shape({
       name: PropTypes.string.isRequired,
       slug: PropTypes.string.isRequired,
-      alcoholByVolume: PropTypes.oneOfType([
+      totalCost: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
       ]).isRequired,
@@ -19,11 +19,11 @@ export default class AlcoholByVolumeEditingInputs extends Component {
     super(props)
     const {
       alcoholInstance: {
-        alcoholByVolume,
+        totalCost,
       },
     } = props
     this.state = {
-      alcoholByVolume,
+      totalCost,
     }
   }
 
@@ -33,24 +33,24 @@ export default class AlcoholByVolumeEditingInputs extends Component {
 
   render () {
     const {
-      updateInputValue,
       alcoholInstance: {
-        alcoholByVolume,
-      }
+        totalCost,
+      },
+      updateInputValue,
     } = this.props
     return (
-      <div className="AlcoholByVolumeEditingInputs">
-        <div className="AlcoholByVolumeEditingInputs__input-group">
+      <div className="TotalCostEditingInputs">
+        <div className="TotalCostEditingInputs__input-group">
+          <div className="TotalCostEditingInputs__input-symbol">&#36;</div>
           <input
             type="number"
             step="any"
-            className="AlcoholByVolumeEditingInputs__input"
-            name="alcoholByVolume"
+            className="TotalCostEditingInputs__input"
+            name="totalCost"
             onChange={updateInputValue}
             ref={(node) => this.focalNode = node}
-            value={alcoholByVolume}
+            value={totalCost}
           />
-          <div className="AlcoholByVolumeEditingInputs__input-symbol">&#37;</div>
         </div>
       </div>
     )

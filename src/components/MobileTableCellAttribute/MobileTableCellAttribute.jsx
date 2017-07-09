@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import './MobileTableCellAttribute.css'
 import FormattedAttributeValue from '../FormattedAttributeValue'
-import AlcoholInstanceEditingModalConnected from '../../containers/AlcoholInstanceEditingModalConnected'
 
 export default class MobileTableCellAttribute extends Component {
   static propTypes = {
@@ -15,18 +14,12 @@ export default class MobileTableCellAttribute extends Component {
       PropTypes.string,
       PropTypes.number,
     ]).isRequired,
-    setAlcoholSlugBeingEdited: PropTypes.func,
-    setAlcoholAttributeBeingEdited: PropTypes.func,
+    showAlcoholInstanceEditingModal: PropTypes.func,
   }
 
   constructor(props) {
     super(props)
-    this.state = {
-      isEditingModalOpen: false,
-    }
     this.handleClick = this.handleClick.bind(this)
-    this.openEditingModal = this.openEditingModal.bind(this)
-    this.closeModal = this.closeModal.bind(this)
   }
 
   handleClick() {
@@ -34,25 +27,10 @@ export default class MobileTableCellAttribute extends Component {
       attributeName,
       isEditable,
       slug,
-      setAlcoholAttributeBeingEdited,
-      setAlcoholSlugBeingEdited,
+      showAlcoholInstanceEditingModal,
     } = this.props
     if (!isEditable) return
-    setAlcoholAttributeBeingEdited(attributeName)
-    setAlcoholSlugBeingEdited(slug)
-    this.openEditingModal()
-  }
-
-  openEditingModal() {
-    this.setState({
-      isEditingModalOpen: true,
-    })
-  }
-
-  closeModal() {
-    this.setState({
-      isEditingModalOpen: false,
-    })
+    showAlcoholInstanceEditingModal(slug, attributeName)
   }
 
   render() {
@@ -62,9 +40,6 @@ export default class MobileTableCellAttribute extends Component {
       label,
       value,
     } = this.props
-    const {
-      isEditingModalOpen,
-    } = this.state
     return (
       <p
         className={`
@@ -79,10 +54,6 @@ export default class MobileTableCellAttribute extends Component {
         >
           <FormattedAttributeValue format={format} value={value} />
         </span>
-        <AlcoholInstanceEditingModalConnected
-          isOpen={isEditingModalOpen}
-          onRequestClose={this.closeModal}
-        />
       </p>
     )
   }
