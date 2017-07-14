@@ -19,9 +19,14 @@
   border-radius: 0
   border-right: 1px solid black
   color: $teal
+  cursor: pointer
   flex: 2
   font-size: 1em
   font-style: italic
   margin: 0
   outline: none
   text-align-last: center
+  +from($breakpoint-tablet)
+    transition: color 0.2s ease-out
+    &:hover
+      color: $lightteal
