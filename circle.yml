@@ -3,4 +3,4 @@ deployment:
     branch: master
     commands:
       - npm run build
-      - surge --project ../build --domain budgetbrew.surge.sh
+      - surge --project ./build --domain budgetbrew.surge.sh
