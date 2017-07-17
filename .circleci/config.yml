@@ -39,13 +39,13 @@ jobs:
   deploy:
     working_directory: ~/frugal-alcoholic
     steps:
-      - run:
+      - type:
         name: prepare production build
         command: |
           if [ "${CIRCLE_BRANCH}" == "master" ]; then
             npm run build
           fi
-      - run:
+      - type:
         name: deploy to surge
         command: |
           if [ "${CIRCLE_BRANCH}" == "master" ]; then
