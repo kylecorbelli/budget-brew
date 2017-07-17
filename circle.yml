@@ -6,5 +6,5 @@ deployment:
     branch: master
     commands:
       - npm run build
-      - cp ~/build/index.html ~/build/200.html
-      - surge --project ~/build --domain budgetbrew.surge.sh
+      - cp ~/budget-brew/build/index.html ~/budget-brew/build/200.html
+      - surge --project ~/budget-brew/build --domain budgetbrew.surge.sh
