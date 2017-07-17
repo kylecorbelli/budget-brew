@@ -1,0 +1,7 @@
+deployment:
+  production:
+    branch: master
+    commands:
+      - npm run build
+      - cp ~/build/index.html ~/build/200.html
+      - surge --project ~/build --domain budgetbrew.surge.sh
